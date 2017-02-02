@@ -1,0 +1,361 @@
+@charset "utf-8";
+
+/* 公共部分 */
+
+$height100: 100%;
+$fontColor: #fff;
+a {
+    color: $fontColor;
+}
+
+html {
+    height: $height100;
+    body {
+        height: $height100;
+        color: $fontColor;
+        .swiper-container {
+            height: $height100;
+            .swiper-wrapper {
+                height: $height100;
+                .swiper-slide {
+                    height: $height100;
+                }
+            }
+            section {
+                padding: 100px 0;
+            }
+        }
+    }
+}
+
+
+/* 字体图标 */
+
+@font-face {
+    font-family: "iconfont";
+    src: url('../fonts/iconfont.eot?t=1485979185341');
+    /* IE9*/
+    src: url('../fonts/iconfont.eot?t=1485979185341#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/iconfont.woff?t=1485979185341') format('woff'), /* chrome, firefox */
+    url('../fonts/iconfont.ttf?t=1485979185341') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../fonts/iconfont.svg?t=1485979185341#iconfont') format('svg');
+    /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zhihu1:before {
+    content: "\e619";
+}
+
+.icon-blog1:before {
+    content: "\e602";
+}
+
+.icon-email1:before {
+    content: "\e61e";
+}
+
+// .icon {
+//     font-size: 42px;
+//     line-height: 100px;
+//     margin: 10px 0;
+//     color: #333;
+//     -webkit-transition: font-size 0.25s ease-out 0s;
+//     -moz-transition: font-size 0.25s ease-out 0s;
+//     transition: font-size 0.25s ease-out 0s;
+// }
+.icon-toggle:before {
+    content: "\e631";
+    font-size: 25px;
+}
+
+.icon-Git:before {
+    content: "\e61c";
+}
+
+.icon:hover {
+    font-size: 100px;
+}
+
+
+/* 固定头部 */
+
+.fixNav {
+    position: fixed;
+    width: 100%;
+    min-width: 320px;
+    // display: block;
+    z-index: 999;
+    padding: 10px 30px;
+    background: rgba(0, 0, 0, .1);
+    .fixNav-logo-img {
+        // display: inline-block;
+        img {
+            border-radius: 50%;
+        }
+    }
+    .fixNav-logo-intro {
+        // display: inline-block;
+        // padding-left: 20px;
+        span {
+            display: block;
+            width: 70px;
+            text-align: center;
+            padding: 5px 10px;
+        }
+        span:first-child {
+            border-bottom: 1px solid $fontColor;
+        }
+    }
+    nav {
+        padding-right: 60px;
+        display: block;
+        li {
+            // float: right;
+            position: relative;
+            display: block;
+            a {
+                display: block;
+                padding: 20px 25px;
+            }
+            :hover::after,
+            :focus::after {
+                opacity: 1;
+                -webkit-transform: translateY(-5px);
+                -moz-transform: translateY(-5px);
+                transform: translateY(-5px);
+            }
+            a::after {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: rgba(0, 0, 0, 0.1);
+                content: '';
+                opacity: 0;
+                -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+                -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+                transition: opacity 0.3s, transform 0.3s;
+                -webkit-transform: translateY(10px);
+                -moz-transform: translateY(10px);
+                transform: translateY(10px);
+            }
+        }
+    }
+    .navbar-toggle {
+        position: absolute;
+        top: 20px;
+        right: 80px;
+        display: block;
+        border: 1px solid #ddd;
+        padding: 4px 5px;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: transparent;
+    }
+}
+
+@media (max-width: 768px) {
+    .fixNav nav {
+        display: none;
+    }
+    .fixNav nav li a {
+        padding: 20px 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .fixNav .navbar-toggle {
+        display: none;
+    }
+    .fixNav nav ul li {
+        float: left;
+    }
+    .fixNav-logo {
+        float: left;
+    }
+    .fixNav nav {
+        float: right;
+    }
+}
+
+// let bgColor = ['#1889C5', '#9C58B6', '#26B1B6', '#ED6461'];
+
+/* 个人简介 */
+
+#intro {
+    background-color: #1889C5;
+    .intro-container {
+        .intro-img {
+            // margin: 0 auto;
+            img {
+                display: block;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                margin: 0 auto;
+            }
+            // p {
+            //     padding: 20px 0 10px;
+            //     font-size: 20px;
+            //     // text-align: center;
+            //     border-bottom: 2px solid #ddd;
+            // }
+        }
+        .intro-text {
+            width: 60%;
+            margin: 0 auto;
+            > p {
+                text-align: center;
+                font-size: 18px;
+                font-weight: 600;
+                padding: 30px 0 20px;
+                border-bottom: 2px solid #ddd;
+            }
+            .intro-text-details {
+                text-align: center;
+                span {
+                    display: block;
+                    font-size: 16px;
+                    padding: 10px 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #intro {
+        padding-top: 260px;
+    }
+}
+
+
+/* 专业技能 */
+
+#skill {
+    background-color: #9C58B6;
+    padding-top: 200px;
+    h4 {
+        font-size: 46px;
+        font-weight: 600;
+        text-align: center;
+    }
+    ul {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 20px;
+        li {
+            float: left;
+            width: 25%;
+            dl {
+                border: 2px solid #fff;
+                width: 150px;
+                text-align: center;
+                margin: 0 auto;
+                cursor: default;
+                dt {
+                    color: #000;
+                    background-color: #fff;
+                    height: 36px;
+                    line-height: 36px;
+                }
+                dd {
+                    height: 36px;
+                    line-height: 36px;
+                }
+                dd:hover,
+                dd:focus {
+                    color: #000;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+    .content-link {
+        a {
+            width: 24%;
+            display: inline-block;
+            text-align: center;
+            font-size: 80px;
+            transition: .5s ease-in;
+            color: #000;
+        }
+        a:hover {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+@media (min-width: 769px) {
+    #skill ul {
+        padding: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    #skill {
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    // #skill ul {
+    //     padding: 50px 0 0;
+    // }
+    #skill ul li:nth-child(1),
+    #skill ul li:nth-child(3) {
+        width: 50%;
+    }
+    #skill ul li:nth-child(2),
+    #skill ul li:nth-child(4) {
+        display: none;
+    }
+}
+
+
+/* 工作经历 */
+
+#workEXP {
+    background-color: #26B1B6;
+    padding-top: 200px;
+    // padding: 200px 30px 0;
+    h4 {
+        font-size: 46px;
+        font-weight: 600;
+        text-align: center;
+    }
+    > p {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 16px;
+        // display: inline-block;
+        // width: 45%;
+        // text-indent: 2em;
+    }
+    .demo-list {
+        padding-top: 50px;
+        ul {
+            li {
+                float: left;
+                width: 25%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+/* 关于我 */
+
+#aboutMe {
+    background-color: #ED6461;
+}
