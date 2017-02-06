@@ -8,14 +8,9 @@ html {
   html body {
     height: 100%;
     color: #fff; }
-    html body .swiper-container {
-      height: 100%; }
-      html body .swiper-container .swiper-wrapper {
-        height: 100%; }
-        html body .swiper-container .swiper-wrapper .swiper-slide {
-          height: 100%; }
-      html body .swiper-container section {
-        padding: 100px 0; }
+    html body section {
+      height: 100%;
+      padding: 100px 0; }
 
 /* 字体图标 */
 @font-face {
@@ -40,6 +35,14 @@ html {
 .icon-email1:before {
   content: "\e61e"; }
 
+.icon-lianjie {
+  font-size: 46px;
+  color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
 .icon-toggle:before {
   content: "\e631";
   font-size: 25px; }
@@ -57,9 +60,14 @@ html {
   min-width: 320px;
   z-index: 999;
   padding: 10px 30px;
-  background: rgba(0, 0, 0, 0.1); }
+  background: rgba(0, 0, 0, 0.3); }
   .fixNav .fixNav-logo-img img {
-    border-radius: 50%; }
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    transition: all .2s ease-in-out; }
+  .fixNav .fixNav-logo-img img:hover {
+    box-shadow: 0 0 15px #1FAEFF; }
   .fixNav .fixNav-logo-intro span {
     display: block;
     width: 70px;
@@ -76,6 +84,8 @@ html {
       .fixNav nav li a {
         display: block;
         padding: 20px 25px; }
+      .fixNav nav li a:hover {
+        color: #999; }
       .fixNav nav li :hover::after,
       .fixNav nav li :focus::after {
         opacity: 1;
@@ -134,7 +144,11 @@ html {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin: 0 auto; }
+    margin: 0 auto;
+    transition: all .2s ease-in-out;
+    animation: introImgAnimitions 3s; }
+  #intro .intro-container .intro-img img:hover {
+    transform: scale(1.02); }
   #intro .intro-container .intro-text {
     width: 60%;
     margin: 0 auto; }
@@ -143,9 +157,11 @@ html {
       font-size: 18px;
       font-weight: 600;
       padding: 30px 0 20px;
-      border-bottom: 2px solid #ddd; }
+      border-bottom: 2px solid #ddd;
+      animation: scaleAnimitions 3s; }
     #intro .intro-container .intro-text .intro-text-details {
-      text-align: center; }
+      text-align: center;
+      animation: scaleAnimitions 3s; }
       #intro .intro-container .intro-text .intro-text-details span {
         display: block;
         font-size: 16px;
@@ -154,14 +170,56 @@ html {
 @media (min-width: 768px) {
   #intro {
     padding-top: 260px; } }
+@keyframes introImgAnimitions {
+  0% {
+    width: 0;
+    height: 0; }
+  20% {
+    width: 37.5px;
+    height: 37.5px; }
+  40% {
+    width: 75px;
+    height: 75px; }
+  60% {
+    width: 112.5px;
+    height: 112.5px; }
+  100% {
+    width: 150px;
+    height: 150px; } }
+@keyframes scaleAnimitions {
+  0% {
+    transform: scale(0);
+    opacity: 0; }
+  20% {
+    transform: scale(25%);
+    opacity: .2; }
+  40% {
+    transform: scale(50%);
+    opacity: .5; }
+  60% {
+    transform: scale(75%);
+    opacity: .8; }
+  100% {
+    transform: scale(100%);
+    opacity: 1; } }
 /* 专业技能 */
 #skill {
   background-color: #9C58B6;
-  padding-top: 200px; }
+  padding-top: 200px;
+  text-align: center; }
   #skill h4 {
+    animation: scaleAnimitions 3s; }
+  #skill > h4:nth-of-type(1) {
+    display: inline-block;
     font-size: 46px;
     font-weight: 600;
-    text-align: center; }
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; }
+  #skill > h4:nth-of-type(2) {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+    color: #ccc; }
   #skill ul {
     text-align: center;
     padding-top: 20px;
@@ -200,9 +258,16 @@ html {
 @media (min-width: 769px) {
   #skill ul {
     padding: 100px; } }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #skill {
-    padding-top: 100px; } }
+    padding-top: 80px; }
+    #skill .content-link {
+      padding-top: 2px; }
+      #skill .content-link a {
+        font-size: 50px; } }
+@media (min-width: 767px) {
+  #skill ul {
+    padding-bottom: 100px; } }
 @media (max-width: 576px) {
   #skill ul li:nth-child(1),
   #skill ul li:nth-child(3) {
@@ -210,28 +275,159 @@ html {
 
   #skill ul li:nth-child(2),
   #skill ul li:nth-child(4) {
-    display: none; } }
+    display: none; }
+
+  #skill .content-link {
+    padding-top: 100px; } }
+@keyframes heightAnimitions {
+  0% {
+    height: 0; }
+  20% {
+    height: 25%; }
+  40% {
+    height: 50%; }
+  60% {
+    height: 75%; }
+  100% {
+    height: 100%; } }
 /* 工作经历 */
 #workEXP {
   background-color: #26B1B6;
-  padding-top: 200px; }
-  #workEXP h4 {
+  padding-top: 200px;
+  text-align: center; }
+  #workEXP > h4:nth-of-type(1) {
+    display: inline-block;
     font-size: 46px;
     font-weight: 600;
-    text-align: center; }
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; }
+  #workEXP > h4:nth-of-type(2) {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+    color: #ccc; }
   #workEXP > p {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 40px;
     font-size: 16px; }
   #workEXP .demo-list {
-    padding-top: 50px; }
+    padding-top: 100px; }
     #workEXP .demo-list ul li {
       float: left;
       width: 25%;
       text-align: center; }
+      #workEXP .demo-list ul li a {
+        height: 100%;
+        display: inline-block;
+        position: relative; }
+        #workEXP .demo-list ul li a .demo-list-hide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255, 0, 0, 0.3);
+          display: none;
+          width: 100%; }
+          #workEXP .demo-list ul li a .demo-list-hide > p {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 16px;
+            color: #000;
+            width: 100%;
+            text-align: center; }
+  #workEXP .demo-info {
+    padding-top: 100px; }
+    #workEXP .demo-info > p > a {
+      font-size: 16px;
+      font-weight: 700; }
+    #workEXP .demo-info > p a:hover {
+      color: #999; }
 
+@media (max-width: 767px) {
+  #workEXP {
+    padding-top: 80px; }
+    #workEXP > p {
+      padding-top: 10px; }
+    #workEXP .demo-list {
+      padding-top: 50px; }
+    #workEXP .demo-info {
+      padding-top: 30px; }
+
+  #workEXP .demo-list ul li:nth-child(1) {
+    display: none; }
+
+  #workEXP .demo-list ul li {
+    width: 33.333%; }
+
+  #aboutMe .aboutMe {
+    display: none; } }
+@media (max-width: 576px) {
+  #workEXP .demo-list ul li:nth-child(1),
+  #workEXP .demo-list ul li:nth-child(2) {
+    display: none; }
+
+  #workEXP .demo-list ul li {
+    width: 50%; }
+    #workEXP .demo-list ul li a img {
+      width: 160px;
+      height: 144px; }
+
+  #aboutMe .aboutMe {
+    display: block; } }
 /* 关于我 */
 #aboutMe {
-  background-color: #ED6461; }
+  background-color: #ED6461;
+  text-align: center; }
+  #aboutMe > h4:nth-of-type(1) {
+    display: inline-block;
+    font-size: 46px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc; }
+  #aboutMe > h4:nth-of-type(2) {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+    color: #ccc; }
+  #aboutMe .contactMe-header {
+    padding-top: 20px;
+    font-size: 26px; }
+    #aboutMe .contactMe-header > p > span:nth-child(1) {
+      color: #22B573; }
+    #aboutMe .contactMe-header > p > span:nth-child(2) {
+      color: #1889C5; }
+    #aboutMe .contactMe-header > p > span:nth-child(3) {
+      color: #9C58B6; }
+    #aboutMe .contactMe-header > p > span:nth-child(4) {
+      color: #26B1B6; }
+  #aboutMe .contactMe-info {
+    padding-top: 50px; }
+    #aboutMe .contactMe-info > p {
+      line-height: 30px; }
+    #aboutMe .contactMe-info .contactMe-info-email {
+      padding-top: 20px;
+      font-size: 30px; }
+    #aboutMe .contactMe-info .contactMe-info-email:hover {
+      text-decoration: underline; }
+  #aboutMe .aboutMe {
+    padding-top: 50px; }
+    #aboutMe .aboutMe .aboutMe-click {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ccc;
+      display: inline-block;
+      line-height: 100px;
+      cursor: pointer;
+      transition: all .2s ease-in-out; }
+    #aboutMe .aboutMe .aboutMe-click:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #279abb; }
+    #aboutMe .aboutMe .aboutMe-content {
+      display: none; }
+      #aboutMe .aboutMe .aboutMe-content p {
+        line-height: 20px; }
 
 /*# sourceMappingURL=index.css.map */

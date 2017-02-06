@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .all {
+        margin-top: 30px;
+    }
+    
+    .xh {
+        float: left;
+        margin-right: 20px;
+        color: red;
+        font-style: italic;
+        font-size: 30px;
+    }
+    
+    #menu {
+        width: 500px;
+    }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#btnSearch').on('click', function() {
+            var menu = $('#menu');
+            menu.html('正在努力查找中');
+            $.ajax({
+                type: 'get',
+                url: 'http://apis.juhe.cn/cook/query?key=94d91915a6fc3cd72fab556a16b92676&rn=10&pn=3&menu=' + encodeURIComponent($('#txtSearch').val()),
+                dataType: 'jsonp',
+                success: function(data) {
+                    menu.empty();
+                    if (data.resultcode != 200) {
+                        menu.html('亲,没找到');
+                        return;
+                    }
+                    $.each(data.result.data, function(index, value) {
+                        var all = $('<div class="all"></div>');
+                        menu.append(all);
+                        var h2 = $('<h2>' + value.title + '</h2>');
+                        all.append(h2);
+                        var intro = $('<p class="intro">' + value.imtro + '</p>');
+                        all.append(intro);
+                        $.each(value.albums, function(i, v) {
+                            var img = $('<img src="' + v + '">');
+                            all.append(img);
+                        });
+                        var zl = $('<p class="zl">主料：' + value.ingredients + '</p>');
+                        all.append(zl);
+                        var fl = $('<p class="zl">辅料：' + value.burden + '</p>');
+                        all.append(fl);
+                        var steps = $('<div class="steps"></div>');
+                        all.append(steps);
+                        $.each(value.steps, function(i, v) {
+                            var xh = $('<em class="xh">' + (i + 1) + '.</em>');
+                            steps.append(xh);
+                            var c = $('<div class="c"></div>');
+                            steps.append(c);
+                            var p1 = $('<p>' + v.step + '</p>');
+                            c.append(p1);
+                            var p2 = $('<p><img src="' + v.img + '"></p>');
+                            c.append(p2);
+                        });
+                        all.append('<hr />');
+                    });
+                },
+                error: function() {
+                    menu.empty().html('出错了');
+                }
+
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <h1>ajax</h1>
+    <p>请搜索菜单,比如说肉,但免费API接口有次数限制,有可能存在连接不上的问题,目前测试没毛病</p>
+    <input type="search" id="txtSearch">
+    <input type="button" value="搜索" id="btnSearch">
+    <div id="menu">
+    </div>
+</body>
+
+</html>

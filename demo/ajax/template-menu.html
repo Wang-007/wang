@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .all {
+        margin-top: 30px;
+    }
+    
+    .xh {
+        float: left;
+        margin-right: 20px;
+        color: red;
+        font-style: italic;
+        font-size: 30px;
+    }
+    
+    #menu {
+        width: 500px;
+    }
+    </style>
+    <!-- <script type="text/javascript" src="js/template-native.js"></script> -->
+    <script type="text/javascript" src="js/template.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#btnSearch').on('click', function() {
+            var menu = $('#menu');
+            menu.html('正在努力查找中');
+            $.ajax({
+                type: 'get',
+                // 免费接口只能使用1000次,会过期,代码已测试没毛病
+                url: 'http://apis.juhe.cn/cook/query?key=94d91915a6fc3cd72fab556a16b92676&rn=10&pn=3&menu=' + encodeURIComponent($('#txtSearch').val()),
+                dataType: 'jsonp',
+                success: function(data) {
+                    menu.empty();
+                    if (data.resultcode != 200) {
+                        menu.html('没找到');
+                        return;
+                    }
+                    var html = template('tpl', data.result);
+                    menu.html(html);
+
+                },
+                error: function() {
+                    menu.empty().html('出错了');
+                }
+            });
+        });
+    });
+    </script>
+    <script id="tpl" type="text/html">
+        <!-- 原生语法 -->
+        <!-- <% for (var i = 0; i < data.length; i++) { %>
+            <div class="all">
+                <h2><%= data[i].title %></h2>
+                <p class="intro"><% data[i].imtro %></p>
+                <% for (var j = 0; j < data[i].albums.length; j++) { %>
+                    <img src="<%= data[i].albums[j] %>">
+                <% } %>
+                <p class="zl">主料：<%= data[i].ingredients %></p>
+                <p class="fl">辅料：<%= data[i].burden %></p>
+                <div class="steps">
+                    <% for (var j = 0, leng = data[i].steps.length; j < leng; j++) { %>
+                        <em class="xh"><%= j+1 %>.</em>
+                        <div class="c">
+                            <p><%= data[i].steps[j].step %></p>
+                            <p><img src="<%= data[i].steps[j].img %>"></p>
+                        </div>
+                    <% } %>
+                </div>
+                <hr />
+            </div>
+        <% } %> -->
+        <!-- 简洁语法 -->
+        {{each data as value i}}
+        <div class="all">
+            <h2>{{value.title}}</h2>
+            <p class="intro">{{value.imtro}}</p>
+            {{each value.albums as value i}}
+            <img src="{{value}}"> {{/each}}
+            <p class="zl">主料：{{value.ingredients}}</p>
+            <p class="fl">辅料：{{value.burden}}</p>
+            <div class="steps">
+                {{each value.steps as value i}}
+                <em class="xh">{{i+1}}.</em>
+                <div class="c">
+                    <p>{{value.step}}</p>
+                    <p><img src="{{value.img}}"></p>
+                </div>
+                {{/each}}
+            </div>
+            <hr />
+        </div>
+        {{/each}}
+    </script>
+    <!--<div class="all">
+        <h2>秘制红烧肉</h2>
+        <p class="intro">简介简介</p>
+        <img src="">
+        <p class="zl">主料：哈哈</p>
+        <p class="fl">辅料：哈哈</p>
+        <div class="steps">
+            <em class="xh">1.</em>
+            <div class="c">
+                <p>第一步你猜是啥</p>
+                <p>图片哈</p>
+            </div>
+        </div>
+    </div> -->
+</head>
+
+<body>
+    <h1>ajax及template框架的运用</h1>
+    <p>请搜索菜单,比如说肉,但免费API接口有次数限制,有可能存在连接不上的问题,目前测试没毛病</p>
+    <input type="search" id="txtSearch">
+    <input type="button" value="搜索" id="btnSearch">
+    <div id="menu">
+    </div>
+</body>
+
+</html>

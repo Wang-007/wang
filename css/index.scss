@@ -3,27 +3,23 @@
 /* 公共部分 */
 
 $height100: 100%;
-$fontColor: #fff;
+$White: #fff;
+$Black: #000;
+$Red: #f00;
+$ccc: #ccc;
+$Color999: #999;
 a {
-    color: $fontColor;
+    color: $White;
 }
 
 html {
     height: $height100;
     body {
         height: $height100;
-        color: $fontColor;
-        .swiper-container {
+        color: $White;
+        section {
             height: $height100;
-            .swiper-wrapper {
-                height: $height100;
-                .swiper-slide {
-                    height: $height100;
-                }
-            }
-            section {
-                padding: 100px 0;
-            }
+            padding: 100px 0;
         }
     }
 }
@@ -45,7 +41,7 @@ html {
 .iconfont {
     font-family: "iconfont" !important;
     font-style: normal;
-    color: #fff;
+    color: $White;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -62,15 +58,15 @@ html {
     content: "\e61e";
 }
 
-// .icon {
-//     font-size: 42px;
-//     line-height: 100px;
-//     margin: 10px 0;
-//     color: #333;
-//     -webkit-transition: font-size 0.25s ease-out 0s;
-//     -moz-transition: font-size 0.25s ease-out 0s;
-//     transition: font-size 0.25s ease-out 0s;
-// }
+.icon-lianjie {
+    font-size: 46px;
+    color: $Black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .icon-toggle:before {
     content: "\e631";
     font-size: 25px;
@@ -91,19 +87,21 @@ html {
     position: fixed;
     width: 100%;
     min-width: 320px;
-    // display: block;
     z-index: 999;
     padding: 10px 30px;
-    background: rgba(0, 0, 0, .1);
+    background: rgba(0, 0, 0, .3);
     .fixNav-logo-img {
-        // display: inline-block;
         img {
+            width: 62px;
+            height: 62px;
             border-radius: 50%;
+            transition: all .2s ease-in-out;
+        }
+        img:hover {
+            box-shadow: 0 0 15px #1FAEFF;
         }
     }
     .fixNav-logo-intro {
-        // display: inline-block;
-        // padding-left: 20px;
         span {
             display: block;
             width: 70px;
@@ -111,19 +109,21 @@ html {
             padding: 5px 10px;
         }
         span:first-child {
-            border-bottom: 1px solid $fontColor;
+            border-bottom: 1px solid $White;
         }
     }
     nav {
         padding-right: 60px;
         display: block;
         li {
-            // float: right;
             position: relative;
             display: block;
             a {
                 display: block;
                 padding: 20px 25px;
+            }
+            a:hover {
+                color: $Color999;
             }
             :hover::after,
             :focus::after {
@@ -187,7 +187,6 @@ html {
     }
 }
 
-// let bgColor = ['#1889C5', '#9C58B6', '#26B1B6', '#ED6461'];
 
 /* 个人简介 */
 
@@ -202,13 +201,12 @@ html {
                 height: 150px;
                 border-radius: 50%;
                 margin: 0 auto;
+                transition: all .2s ease-in-out;
+                animation: introImgAnimitions 3s;
             }
-            // p {
-            //     padding: 20px 0 10px;
-            //     font-size: 20px;
-            //     // text-align: center;
-            //     border-bottom: 2px solid #ddd;
-            // }
+            img:hover {
+                transform: scale(1.02);
+            }
         }
         .intro-text {
             width: 60%;
@@ -219,9 +217,11 @@ html {
                 font-weight: 600;
                 padding: 30px 0 20px;
                 border-bottom: 2px solid #ddd;
+                animation: scaleAnimitions 3s;
             }
             .intro-text-details {
                 text-align: center;
+                animation: scaleAnimitions 3s;
                 span {
                     display: block;
                     font-size: 16px;
@@ -238,16 +238,74 @@ html {
     }
 }
 
+@keyframes introImgAnimitions {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    20% {
+        width: 1/4*150px;
+        height: 1/4*150px;
+    }
+    40% {
+        width: 2/4*150px;
+        height: 2/4*150px;
+    }
+    60% {
+        width: 3/4*150px;
+        height: 3/4*150px;
+    }
+    100% {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@keyframes scaleAnimitions {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    20% {
+        transform: scale(25%);
+        opacity: .2;
+    }
+    40% {
+        transform: scale(50%);
+        opacity: .5;
+    }
+    60% {
+        transform: scale(75%);
+        opacity: .8;
+    }
+    100% {
+        transform: scale(100%);
+        opacity: 1;
+    }
+}
+
 
 /* 专业技能 */
 
 #skill {
     background-color: #9C58B6;
     padding-top: 200px;
+    text-align: center;
     h4 {
+        animation: scaleAnimitions 3s;
+    }
+    > h4:nth-of-type(1) {
+        display: inline-block;
         font-size: 46px;
         font-weight: 600;
-        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $ccc;
+    }
+    > h4:nth-of-type(2) {
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 10px;
+        color: $ccc;
     }
     ul {
         text-align: center;
@@ -257,14 +315,14 @@ html {
             float: left;
             width: 25%;
             dl {
-                border: 2px solid #fff;
+                border: 2px solid $White;
                 width: 150px;
                 text-align: center;
                 margin: 0 auto;
                 cursor: default;
                 dt {
-                    color: #000;
-                    background-color: #fff;
+                    color: $Black;
+                    background-color: $White;
                     height: 36px;
                     line-height: 36px;
                 }
@@ -274,8 +332,8 @@ html {
                 }
                 dd:hover,
                 dd:focus {
-                    color: #000;
-                    background-color: #fff;
+                    color: $Black;
+                    background-color: $White;
                 }
             }
         }
@@ -287,7 +345,7 @@ html {
             text-align: center;
             font-size: 80px;
             transition: .5s ease-in;
-            color: #000;
+            color: $Black;
         }
         a:hover {
             transform: rotate(360deg);
@@ -301,16 +359,25 @@ html {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     #skill {
-        padding-top: 100px;
+        padding-top: 80px;
+        .content-link {
+            padding-top: 2px;
+            a {
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    #skill ul {
+        padding-bottom: 100px;
     }
 }
 
 @media (max-width: 576px) {
-    // #skill ul {
-    //     padding: 50px 0 0;
-    // }
     #skill ul li:nth-child(1),
     #skill ul li:nth-child(3) {
         width: 50%;
@@ -318,6 +385,27 @@ html {
     #skill ul li:nth-child(2),
     #skill ul li:nth-child(4) {
         display: none;
+    }
+    #skill .content-link {
+        padding-top: 100px;
+    }
+}
+
+@keyframes heightAnimitions {
+    0% {
+        height: 0;
+    }
+    20% {
+        height: 25%;
+    }
+    40% {
+        height: 50%;
+    }
+    60% {
+        height: 75%;
+    }
+    100% {
+        height: 100%;
     }
 }
 
@@ -327,28 +415,115 @@ html {
 #workEXP {
     background-color: #26B1B6;
     padding-top: 200px;
-    // padding: 200px 30px 0;
-    h4 {
+    text-align: center;
+    > h4:nth-of-type(1) {
+        display: inline-block;
         font-size: 46px;
         font-weight: 600;
-        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $ccc;
+    }
+    > h4:nth-of-type(2) {
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 10px;
+        color: $ccc;
     }
     > p {
         text-align: center;
-        padding-top: 20px;
+        padding-top: 40px;
         font-size: 16px;
-        // display: inline-block;
-        // width: 45%;
-        // text-indent: 2em;
     }
     .demo-list {
-        padding-top: 50px;
+        padding-top: 100px;
         ul {
             li {
                 float: left;
                 width: 25%;
                 text-align: center;
+                a {
+                    height: 100%;
+                    display: inline-block;
+                    position: relative;
+                    .demo-list-hide {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(255, 0, 0, .3);
+                        display: none;
+                        width: 100%;
+                        >p {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            font-size: 16px;
+                            color: $Black;
+                            width: 100%;
+                            text-align: center;
+                            // display: inline;
+                        }
+                    }
+                }
             }
+        }
+    }
+    .demo-info {
+        padding-top: 100px;
+        > p {
+            > a {
+                font-size: 16px;
+                font-weight: 700;
+            }
+            a:hover {
+                color: $Color999;
+            }
+        }
+    }
+}
+
+@media (max-width:767px) {
+    #workEXP {
+        padding-top: 80px;
+        >p {
+            padding-top: 10px;
+        }
+        .demo-list {
+            padding-top: 50px;
+        }
+        .demo-info {
+            padding-top: 30px;
+        }
+    }
+    #workEXP .demo-list ul li:nth-child(1) {
+        display: none;
+    }
+    #workEXP .demo-list ul li {
+        width: 33.333%;
+    }
+    #aboutMe {
+        .aboutMe {
+            display: none;
+        }
+    }
+}
+
+@media (max-width:576px) {
+    #workEXP .demo-list ul li:nth-child(1),
+    #workEXP .demo-list ul li:nth-child(2) {
+        display: none;
+    }
+    #workEXP .demo-list ul li {
+        width: 50%;
+        a img {
+            width: 160px;
+            height: 144px;
+        }
+    }
+    #aboutMe {
+        .aboutMe {
+            display: block;
         }
     }
 }
@@ -358,4 +533,74 @@ html {
 
 #aboutMe {
     background-color: #ED6461;
+    text-align: center;
+    > h4:nth-of-type(1) {
+        display: inline-block;
+        font-size: 46px;
+        font-weight: 600;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $ccc;
+    }
+    > h4:nth-of-type(2) {
+        // display: inline-block;
+        font-size: 20px;
+        font-weight: 600;
+        padding-top: 10px;
+        color: $ccc;
+    }
+    .contactMe-header {
+        padding-top: 20px;
+        font-size: 26px;
+        > p:nth-of-type(1) {}
+        > p {
+            > span:nth-child(1) {
+                color: #22B573;
+            }
+            > span:nth-child(2) {
+                color: #1889C5;
+            }
+            > span:nth-child(3) {
+                color: #9C58B6;
+            }
+            > span:nth-child(4) {
+                color: #26B1B6;
+            }
+        }
+    }
+    .contactMe-info {
+        padding-top: 50px;
+        > p {
+            line-height: 30px;
+        }
+        .contactMe-info-email {
+            padding-top: 20px;
+            font-size: 30px;
+        }
+        .contactMe-info-email:hover {
+            text-decoration: underline;
+        }
+    }
+    .aboutMe {
+        padding-top: 50px;
+        .aboutMe-click {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ccc;
+            display: inline-block;
+            line-height: 100px;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+        }
+        .aboutMe-click:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #279abb;
+        }
+        .aboutMe-content {
+            display: none;
+            p {
+                line-height: 20px;
+            }
+        }
+    }
 }

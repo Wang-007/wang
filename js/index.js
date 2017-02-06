@@ -1,8 +1,4 @@
-//设置默认路由
-// let defultHash = $('.swiper-container > .swiper-wrapper > section:first').data('hash');
-// location = '#' + defultHash;
-
-//
+let speed = 300;
 
 // 锚点点击URL不变
 $('.fixNav > nav a,.content-link a[href="#aboutMe"]').each(function(i, ele) {
@@ -25,13 +21,70 @@ $('.fixNav-logo-intro').on({
 });
 
 // 导航栏开关
-$('.navbar-toggle').on('click', () => {
+$('.navbar-toggle').on('click', function() {
     $('.fixNav nav').slideToggle('slow');
 });
 
-// 导航栏切换
-// $('.fixNav nav ul li a').each((i, ele) => {
-//     $(ele).on('click', () => {
-//         mySwiper.slideTo(i);
+// demo-list 的动画效果
+const $demoListA = $('#workEXP > .demo-list > ul > li > a');
+$demoListA.on({
+    mouseenter: function() {
+        $(this).children('.demo-list-hide')
+            .show()
+            .children('p')
+            .stop()
+            .animate({ top: 50 }, speed)
+            .end()
+            .children('.icon-lianjie')
+            .stop()
+            .animate({ bottom: 30 }, speed);
+    },
+    mouseleave: function() {
+        const $demo_list_hide = $(this).children('.demo-list-hide');
+        $demo_list_hide
+            .children('p')
+            .stop()
+            .animate({ top: 0 }, speed)
+            .end()
+            .children('.icon-lianjie')
+            .stop()
+            .animate({ bottom: 0 }, speed, function() {
+                $demo_list_hide.hide();
+            });
+    }
+});
+// demo - list 的委托事件动画效果
+// const $demoListUl = $('#workEXP > .demo-list > ul');
+// const $demoListLi = $demoListUl.children('li');
+// $demoListUl.on('mouseenter', 'li', function() {
+//         // console.log($(this));
+//         $(this).children('a').children('.demo-list-hide')
+//             .show()
+//             .children('p')
+//             .stop()
+//             .animate({ top: 50 }, speed)
+//             .end()
+//             .children('.icon-lianjie')
+//             .stop()
+//             .animate({ bottom: 30 }, speed);
+//     })
+//     .on('mouseleave', 'li', function() {
+//         const $demo_list_hide = $(this).children('a').children('.demo-list-hide');
+//         $demo_list_hide
+//             .children('p')
+//             .stop()
+//             .animate({ top: 0 }, speed)
+//             .end()
+//             .children('.icon-lianjie')
+//             .stop()
+//             .animate({ bottom: 0 }, speed, function() {
+//                 $demo_list_hide.hide();
+//             });
 //     });
-// });
+
+// aboutMe-click
+$('#aboutMe .aboutMe-click').on('click', function() {
+    $(this).hide()
+        .siblings('.aboutMe-content')
+        .slideDown(1500);
+});

@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta name="keywords" content="web前端，web前端个人简历，前端开发">
+    <meta name="description" content="王刚的web前端工程师个人简历">
     <title>王刚的个人简历</title>
     <link rel="shortcut icon" type="images/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/base.css">
-    <!-- <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.css"> -->
     <link rel="stylesheet" href="css/index.css">
     <!--[if lt IE 9]>
-        <script src="./node_modules/html5shiv/dist/html5shiv.min.js"></script>
-        <script src="./node_modules/respond.js/dest/respond.min.js"></script>
+        <script src="./lib/html5shiv.min.js"></script>
+        <script src="./lib/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -39,163 +40,165 @@
         </button>
     </header>
     <!-- /固定头部 -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <!-- 个人简介 -->
-            <section id="intro" class="intro swiper-slide" data-hash="intro">
-                <div class="intro-container">
-                    <div class="intro-img">
-                        <!-- <div class="intro-img-left">
-                            <i class="icon iconfont icon-Git"></i>
-                            <i class="icon iconfont icon-zhihu1"></i>
-                        </div> -->
-                        <img src="images/myPhoto.jpg" alt="王刚">
-                        <!-- <div class="intro-img-right">
-                            <i class="icon iconfont icon-blog1"></i>
-                            <i class="icon iconfont icon-email1"></i>
-                        </div> -->
-                    </div>
-                    <div class="intro-text">
-                        <p>无论是你亲手打破了信仰，还是别人逼迫你走出了信仰，你所需要的都是--救赎！</p>
-                        <div class="intro-text-details">
-                            <span>我叫王刚</span>
-                            <span>坐标绍兴</span>
-                            <span>一名前端攻城狮</span>
-                            <span>forwhy007@163.com</span>
-                        </div>
-                    </div>
+    <!-- 个人简介 -->
+    <section id="intro" class="intro">
+        <div class="intro-container">
+            <div class="intro-img">
+                <img src="images/myPhoto.jpg" alt="王刚">
+            </div>
+            <div class="intro-text">
+                <p>无论是你亲手打破了信仰，还是别人逼迫你走出了信仰，你所需要的都是--救赎！</p>
+                <div class="intro-text-details">
+                    <span>我叫王刚</span>
+                    <span>坐标绍兴</span>
+                    <span>一名前端攻城狮</span>
+                    <span>forwhy007@163.com</span>
                 </div>
-            </section>
-            <!-- /个人简介 -->
-            <!-- 专业技能 -->
-            <section id="skill" class="skill swiper-slide" data-hash="skill">
-                <h4>专 业 技 能</h4>
-                <ul class="clearfix">
-                    <li>
-                        <dl>
-                            <dt>语言</dt>
-                            <dd>HTML5</dd>
-                            <dd>CSS3</dd>
-                            <dd>Javascript</dd>
-                            <dd>Less</dd>
-                            <dd>Sass</dd>
-                            <dd>Node</dd>
-                            <dd>PHP</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>思想</dt>
-                            <dd>W3C标准</dd>
-                            <dd>语义化</dd>
-                            <dd>MVC</dd>
-                            <dd>响应式设计</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>框架</dt>
-                            <dd>jQuery</dd>
-                            <dd>AngularJS</dd>
-                            <dd>Bootstrap</dd>
-                            <dd>Swiper</dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>技术</dt>
-                            <dd>Git</dd>
-                            <dd>Ajax</dd>
-                            <dd>NVM</dd>
-                            <dd>NPM</dd>
-                            <dd>Bower</dd>
-                            <dd>Fireworks</dd>
-                            <dd>Apache</dd>
-                            <dd>MySQL</dd>
-                        </dl>
-                    </li>
-                </ul>
-                <div class="content-link">
-                    <a class="icon iconfont icon-Git" href="https://github.com/Wang-007" target="_blank"></a>
-                    <a class="icon iconfont icon-zhihu1" href="https://www.zhihu.com/people/NULLORNOTNULL" target="_blank"></a>
-                    <a class="icon iconfont icon-blog1" href="./blog/blog.html" target="_blank"></a>
-                    <a class="icon iconfont icon-email1" href="#aboutMe"></a>
-                </div>
-            </section>
-            <!-- /专业技能 -->
-            <!-- 工作经历 -->
-            <section id="workEXP" class="workEXP swiper-slide" data-hash="workEXP">
-                <h4>项目经验</h4>
-                <p>我是一个做事认真的人,能在约定时间内保证完成任务。拥有半年前端开发经验，熟悉 HTML5、CSS3、Javascript，能熟练开发符合W3C标准的页面，熟练使用 jQuery、AngularJS 框架。</p>
-                <div class="demo-list">
-                    <ul>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="./images/demo_box1.jpg">
-                                <div class="demo-list-hide">
-                                    <p>DEMO:DOM编程艺术</p>
-                                    <i class="icon iconfont icon-module-link"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="./images/demo_box2.jpg">
-                                <div class="demo-list-hide">
-                                    <p>DEMO:DOM编程艺术</p>
-                                    <i class="icon iconfont icon-module-link"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="./images/demo_box3.jpg">
-                                <div class="demo-list-hide">
-                                    <p>DEMO:DOM编程艺术</p>
-                                    <i class="icon iconfont icon-module-link"></i>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <img src="./images/demo_box4.jpg">
-                                <div class="demo-list-hide">
-                                    <p>DEMO:DOM编程艺术</p>
-                                    <i class="icon iconfont icon-module-link"></i>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="demo_info">
-                    <p>这是我的部分demo。</p>
-                    <p>更多demo请移步<a href="https://www.zhihu.com/people/NULLORNOTNULL" target="_blank">这里</a>。</p>
-                </div>
-            </section>
-            <!-- /工作经历 -->
-            <!-- 关于我 -->
-            <section id="aboutMe" class="aboutMe swiper-slide" data-hash="aboutMe">4</section>
-            <!-- /关于我 -->
+            </div>
         </div>
-        <!-- <div class="swiper-pagination"></div> -->
-        <!-- <div class="swiper-scrollbar"></div> -->
-    </div>
-    <script src="lib/jquery-1.12.4.js"></script>
-    <!-- <script src="node_modules/swiper/dist/js/swiper.jquery.js"></script> -->
-    <!-- 初始化swiper -->
-    <!-- <script>
-    const mySwiper = new Swiper('.swiper-container', {
-        // pagination: '.swiper-pagination',
-        scrollbar: '.swiper-scrollbar',
-        direction: 'vertical',
-        // slidesPerView: 1,
-        paginationClickable: true,
-        mousewheelControl: true,
-        hashnav: true,
-        hashnavWatchState: true,
-        // scrollbarDraggable: true
-    });
-    </script> -->
+    </section>
+    <!-- /个人简介 -->
+    <!-- 专业技能 -->
+    <section id="skill" class="skill">
+        <h4>专 业 技 能</h4>
+        <h4>· SKILL ·</h4>
+        <ul class="clearfix">
+            <li>
+                <dl>
+                    <dt>语言</dt>
+                    <dd>HTML5</dd>
+                    <dd>CSS3</dd>
+                    <dd>Javascript</dd>
+                    <dd>Less</dd>
+                    <dd>Sass</dd>
+                    <dd>Node</dd>
+                    <dd>PHP</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>思想</dt>
+                    <dd>W3C标准</dd>
+                    <dd>语义化</dd>
+                    <dd>MVC</dd>
+                    <dd>响应式设计</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>框架</dt>
+                    <dd>jQuery</dd>
+                    <dd>AngularJS</dd>
+                    <dd>Bootstrap</dd>
+                    <dd>Swiper</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>技术</dt>
+                    <dd>Git</dd>
+                    <dd>Ajax</dd>
+                    <dd>NPM</dd>
+                    <dd>Bower</dd>
+                    <dd>Fireworks</dd>
+                    <dd>Apache</dd>
+                    <dd>MySQL</dd>
+                </dl>
+            </li>
+        </ul>
+        <div class="content-link">
+            <a class="icon iconfont icon-Git" href="https://github.com/Wang-007" target="_blank"></a>
+            <a class="icon iconfont icon-zhihu1" href="https://www.zhihu.com/people/NULLORNOTNULL" target="_blank"></a>
+            <a class="icon iconfont icon-blog1" href="./blog/blog.html" target="_blank"></a>
+            <a class="icon iconfont icon-email1" href="#aboutMe"></a>
+        </div>
+    </section>
+    <!-- /专业技能 -->
+    <!-- 工作经历 -->
+    <section id="workEXP" class="workEXP">
+        <h4>项目经验</h4>
+        <h4>· EXPERIENCE ·</h4>
+        <p>我是一个做事认真的人,能在约定时间内保证完成任务。</p>
+        <p>拥有半年前端开发经验，熟悉 HTML5、CSS3、Javascript，能熟练开发符合W3C标准的页面，熟练使用 jQuery、AngularJS 框架。</p>
+        <div class="demo-list">
+            <ul class="clearfix">
+                <li>
+                    <a href="./demo/GEM/demo1.html" target="_blank">
+                        <img src="./images/demo_box1.jpg">
+                        <div class="demo-list-hide">
+                            <p>判断鼠标进入方向</p>
+                            <i class="iconfont icon-lianjie">&#xe609;</i>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./demo/ajax/template-menu.html" target="_blank">
+                        <img src="./images/demo_box2.jpg">
+                        <div class="demo-list-hide">
+                            <p>ajax及template的运用</p>
+                            <i class="iconfont icon-lianjie">&#xe609;</i>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./demo/Bootstrap/weijinsuo/index.html" target="_blank">
+                        <img src="./images/demo_box3.jpg">
+                        <div class="demo-list-hide">
+                            <p>微金所案例响应式开发</p>
+                            <i class="iconfont icon-lianjie">&#xe609;</i>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./demo/angularJS/app/index.html" target="_blank">
+                        <img src="./images/demo_box4.jpg">
+                        <div class="demo-list-hide">
+                            <p>豆瓣电影AngularJS的运用</p>
+                            <i class="iconfont icon-lianjie">&#xe609;</i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="demo-info">
+            <p>这是我的部分demo。</p>
+            <p>更多demo请移步<a href="https://github.com/Wang-007" target="_blank">这里</a>。</p>
+        </div>
+    </section>
+    <!-- /工作经历 -->
+    <!-- 关于我 -->
+    <section id="aboutMe" class="aboutMe">
+        <h4>联系我</h4>
+        <h4>· CONTACT ME ·</h4>
+        <div class="contactMe-header">
+            <p>灵感 代码 梦想 未来</p>
+            <p>
+                <span>INSPIRATION</span>
+                <span>CODE</span>
+                <span>DREAM</span>
+                <span>FUTURE</span></p>
+        </div>
+        <div class="contactMe-info">
+            <p>学习是一个充实愉悦的过程</p>
+            <p>前端更贴近用户，这种体验非常美妙</p>
+            <p>行路有良友，便是捷径</p>
+            <p>带上我吧，一起看到更大的世界</p>
+            <p class="contactMe-info-email">forwhy007@163.com</p>
+        </div>
+        <div class="aboutMe">
+            <div class="aboutMe-click">about me</div>
+            <div class="aboutMe-content">
+                <p>09年浙江长征职业技术学院财会毕业</p>
+                <p>从事过2年的财务工作</p>
+                <p>实在不喜欢,后一直从事销售</p>
+                <p>一年前开始接触前端,喜欢上了代码的世界</p>
+                <p>16年10月开始全身心的投入</p>
+                <p>从此一朝代码,万事可抛</p>
+            </div>
+        </div>
+    </section>
+    <!-- /关于我 -->
+    <script src="lib/jquery-1.12.4.min.js"></script>
     <script src="js/index.js"></script>
 </body>
 
